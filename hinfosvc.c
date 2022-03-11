@@ -143,7 +143,7 @@ void cpuNameResponse(char *responseText, char *response){
     fgets(responseText, 512, cpuInfo);
     fclose(cpuInfo);
     if (strlen(responseText) == 0) {
-        FILE *cpuInfo = popen("lscpu | grep \"Název modelu\" | sed -r 's/Název modelu:\\s{1,}//g'", "r");
+        FILE *cpuInfo = popen("lscpu | grep \"Název modelu:\" | sed -r 's/Název modelu:\\s{1,}//g'", "r");
         fgets(responseText, 512, cpuInfo);
         fclose(cpuInfo);
     }
@@ -153,8 +153,8 @@ void cpuNameResponse(char *responseText, char *response){
 }
 
 void undefinedResponse(char *responseText, char *response){
-    strncpy(responseText, "404 Not Found\n", 511);
+    strncpy(responseText, "400 Bad request\n", 511);
     snprintf(response, 512,
-             "HTTP/1.1 404 Not Found\nContent-Type: text/plain\nContent-Length: %ld\n\n%s",
+             "HTTP/1.1 400 bad request\nContent-Type: text/plain\nContent-Length: %ld\n\n%s",
              strlen(responseText), responseText);
 }
