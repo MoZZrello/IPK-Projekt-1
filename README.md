@@ -1,7 +1,7 @@
 Počítačové komunikace a sítě - Server v jazyku C <br />
 Autor: Richard Harman (xharma05) <br />
 Datum: 6.3.2022 <br />
-Body: 15/15 <br />
+Body: 18/20 <br />
 
 
 Cieľom projektu je server v jazyku C komunikujúci prostredníctvom protokolu HTTP. <br />
